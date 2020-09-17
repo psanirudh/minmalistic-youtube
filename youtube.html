@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>
+YouTube
+</title>
+
+<style type="text/css">
+	
+#sbox{
+	text-align: center;
+		width: 35%;
+		height: 40px;
+     	margin-left:35%;
+     	margin-top:20%;
+     	font-size: 20px;
+}
+
+</style>
+
+
+
+</head>
+<body>
+<input type="text" id="sbox"></input>
+
+
+<script>
+
+  var base_url ="https://www.youtube.com/results?search_query=";
+  console.log(base_url);
+  
+  var input = document.getElementById("sbox");
+  input.addEventListener("keyup",function(event){
+   if(event.keyCode == 13)
+   	search();
+})
+
+  function search() {
+  	var parameters = document.getElementById("sbox").value;
+  	var parameters_Array = parameters.split(" ");
+
+    var url = base_url + parameters_Array[0]
+
+  	for (var i = 1; i<parameters_Array.length; i++) {
+  		console.log(i);
+  		console.log(parameters_Array[i]);
+
+           
+  		url= url + "+" + parameters_Array[i];
+  	}
+  	console.log(url);// body...  
+  	window.location.href = url;
+  }
+</script>
+
+
+</body>
+</html>
